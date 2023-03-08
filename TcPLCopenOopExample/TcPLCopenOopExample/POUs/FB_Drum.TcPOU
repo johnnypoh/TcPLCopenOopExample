@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <POU Name="FB_Drum" Id="{7fac3d5d-3198-46cf-8f5c-d234e1b9f4fb}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_Drum IMPLEMENTS  ITF_Device
+VAR_INPUT
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR
+	_stCBMLInfo 	: stCBMLInfo;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <Method Name="M_GetState" Id="{0b47d5c4-b465-4374-b22a-4dec1a011bcb}">
+      <Declaration><![CDATA[{warning 'add method implementation '}
+METHOD M_GetState : BOOL;
+
+VAR_OUTPUT
+	O_stCBMLInfo : stCBMLInfo;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[O_stCBMLInfo := _stCBMLInfo;]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="M_SetName" Id="{590fa758-ff6e-49d8-a0d2-61a6a067b50a}">
+      <Declaration><![CDATA[{warning 'add method implementation '}
+METHOD M_SetName : BOOL
+VAR_INPUT
+	sName	: STRING;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[_stCBMLInfo.sName := sName;]]></ST>
+      </Implementation>
+    </Method>
+    <Property Name="P_stCBMLInfo" Id="{70eea36c-bedd-4e8a-b706-270a8746cbd7}">
+      <Declaration><![CDATA[{warning 'add property implementation'}
+PROPERTY P_stCBMLInfo : stCBMLInfo
+]]></Declaration>
+      <Get Name="Get" Id="{268b79f4-1a21-46a2-b126-fb0b59139a1e}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[P_stCBMLInfo := _stCBMLInfo;]]></ST>
+        </Implementation>
+      </Get>
+      <Set Name="Set" Id="{8c3e1ada-5edb-4e03-a91a-1fe373d031b3}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[]]></ST>
+        </Implementation>
+      </Set>
+    </Property>
+    <LineIds Name="FB_Drum">
+      <LineId Id="9" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Drum.M_GetState">
+      <LineId Id="4" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Drum.M_SetName">
+      <LineId Id="7" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Drum.P_stCBMLInfo.Get">
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_Drum.P_stCBMLInfo.Set">
+      <LineId Id="2" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

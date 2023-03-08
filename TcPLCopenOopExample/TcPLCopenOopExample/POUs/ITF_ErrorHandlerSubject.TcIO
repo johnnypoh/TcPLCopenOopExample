@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <Itf Name="ITF_ErrorHandlerSubject" Id="{e353ff13-2755-43fd-b4d5-b805969a0255}">
+    <Declaration><![CDATA[INTERFACE ITF_ErrorHandlerSubject
+
+]]></Declaration>
+    <Method Name="AttachDevice" Id="{08238ad0-a076-4f1b-ae95-df11cc8dfb7d}">
+      <Declaration><![CDATA[METHOD AttachDevice : BOOL
+VAR_INPUT
+	itfDevice 	: ITF_Device;
+END_VAR]]></Declaration>
+    </Method>
+  </Itf>
+</TcPlcObject>

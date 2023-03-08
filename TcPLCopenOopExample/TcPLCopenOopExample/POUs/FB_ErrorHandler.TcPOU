@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <POU Name="FB_ErrorHandler" Id="{104fbfda-2cee-4df9-aac9-1f1d69a87b3a}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_ErrorHandler IMPLEMENTS ITF_ErrorHandlerSubject
+VAR_INPUT
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR
+	_arStCBMLInfo		: ARRAY [0..100] OF stCBMLInfo;
+	arItfDeviceObserver : ARRAY [0..100] OF ITF_Device;
+	uiFc				: UINT;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[FOR uiFc:=0 TO 100 BY 1 DO
+	IF (arItfDeviceObserver[uiFc] <> 0) THEN
+		_arStCBMLInfo[uiFc]:= arItfDeviceObserver[uiFc].P_stCBMLInfo;
+	END_IF
+END_FOR]]></ST>
+    </Implementation>
+    <Method Name="AttachDevice" Id="{4242671a-1ddb-4a53-9784-fcc12b7c7eb7}">
+      <Declaration><![CDATA[METHOD AttachDevice : BOOL
+VAR_INPUT
+	itfDevice 	: ITF_Device;
+END_VAR
+
+VAR 
+	uiFc 		: UINT;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[FOR uiFc:= 0 TO 100 BY 1 DO
+	IF (itfDevice <> 0) AND (arItfDeviceObserver[uiFc] = 0) THEN
+		arItfDeviceObserver[uiFc] := itfDevice;
+		EXIT;
+	END_IF
+END_FOR]]></ST>
+      </Implementation>
+    </Method>
+    <LineIds Name="FB_ErrorHandler">
+      <LineId Id="9" Count="0" />
+      <LineId Id="21" Count="0" />
+      <LineId Id="23" Count="1" />
+      <LineId Id="22" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_ErrorHandler.AttachDevice">
+      <LineId Id="4" Count="0" />
+      <LineId Id="11" Count="0" />
+      <LineId Id="13" Count="0" />
+      <LineId Id="15" Count="0" />
+      <LineId Id="14" Count="0" />
+      <LineId Id="12" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

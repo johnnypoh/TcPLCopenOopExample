@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <Itf Name="ITF_Device" Id="{dca516ab-6f97-406c-abb4-bba53a24c488}">
+    <Declaration><![CDATA[INTERFACE ITF_Device
+]]></Declaration>
+    <Method Name="M_GetState" Id="{9e652fc5-dda9-49b3-8f28-0dcbe7c88c0e}">
+      <Declaration><![CDATA[METHOD M_GetState : BOOL
+VAR_OUTPUT
+	O_stCBMLInfo : stCBMLInfo;
+END_VAR
+]]></Declaration>
+    </Method>
+    <Method Name="M_SetName" Id="{7b37e582-63dd-463a-9077-07fc45c4e657}">
+      <Declaration><![CDATA[METHOD M_SetName : BOOL
+VAR_INPUT
+	sName		: STRING;
+END_VAR
+]]></Declaration>
+    </Method>
+    <Property Name="P_stCBMLInfo" Id="{13b97e24-0710-4096-a40f-d4c5bddbdf61}">
+      <Declaration><![CDATA[PROPERTY P_stCBMLInfo : stCBMLInfo]]></Declaration>
+      <Get Name="Get" Id="{17b6ff28-acfa-4a46-bc1a-5d5b8e1b19c5}">
+        <Declaration><![CDATA[]]></Declaration>
+      </Get>
+      <Set Name="Set" Id="{3dc340ff-434a-432e-a628-bf5b0be5bb6c}">
+        <Declaration><![CDATA[]]></Declaration>
+      </Set>
+    </Property>
+  </Itf>
+</TcPlcObject>

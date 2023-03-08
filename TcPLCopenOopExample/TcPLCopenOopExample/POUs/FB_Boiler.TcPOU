@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <POU Name="FB_Boiler" Id="{d7c5a7e0-13b6-4653-bd01-6cb5edd2cd79}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_Boiler 
+VAR_INPUT
+	itfErrorHandler		: ITF_ErrorHandlerSubject;
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR
+	xInit				: BOOL;
+	fbDrum1				: FB_Drum;
+	fbDrum2				: FB_Drum;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF (NOT xInit) THEN
+	xInit := TRUE;
+	fbDrum1.M_SetName('Drum1');
+	fbDrum2.M_SetName('Drum2');
+	
+	
+	IF (itfErrorHandler <> 0) THEN
+		itfErrorHandler.AttachDevice(fbDrum1);
+		itfErrorHandler.AttachDevice(fbDrum2);
+	END_IF
+END_IF]]></ST>
+    </Implementation>
+    <LineIds Name="FB_Boiler">
+      <LineId Id="9" Count="1" />
+      <LineId Id="21" Count="0" />
+      <LineId Id="23" Count="0" />
+      <LineId Id="22" Count="0" />
+      <LineId Id="13" Count="1" />
+      <LineId Id="16" Count="0" />
+      <LineId Id="20" Count="0" />
+      <LineId Id="17" Count="0" />
+      <LineId Id="11" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

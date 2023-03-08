@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <POU Name="MAIN" Id="{cbe91a83-74aa-4d62-b058-d6d2b5d624db}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+	fbErrorHandler: FB_ErrorHandler;
+	fbBoiler1: FB_Boiler;
+	fbBoiler2: FB_Boiler;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+fbBoiler1(itfErrorHandler:=fbErrorHandler );
+fbBoiler2(itfErrorHandler:=fbErrorHandler );
+
+fbErrorHandler();]]></ST>
+    </Implementation>
+    <LineIds Name="MAIN">
+      <LineId Id="7" Count="2" />
+      <LineId Id="12" Count="0" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>
